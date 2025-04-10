@@ -109,12 +109,38 @@
         .btn:hover {
             background-color: #ff4d4d;
         }
-        .download-cv {
-            background-color: #ff6b6b;
-        }
-        .view-projects {
-            background-color: #3498db;
-        }
+        /* General Button Styles */
+.button {
+    padding: 10px 20px; /* Adds padding for better sizing */
+    background-color: #ff6b6b; /* Default button color */
+    color: white; /* Text color */
+    border: none; /* Removes borders */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    text-decoration: none; /* Removes underline if used as a link */
+    display: inline-block; /* Ensures consistent alignment */
+    text-align: center; /* Centers text inside the button */
+}
+
+.button:hover {
+    background-color: #ff4d4d; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
+.button:active {
+    transform: scale(0.98); /* Shrinks the button slightly when clicked */
+}
+
+/* Specific Button Variations */
+#download-cv {
+    background-color: #ff6b6b; /* Red color for Download CV */
+}
+
+.view-projects {
+    background-color: #3498db; /* Blue color for View Projects */
+}
         .contact-info {
             margin-top: 20px;
             font-size: 16px;
@@ -280,8 +306,13 @@
                 <h3>Regional Architect Consultant Manager | Alumil Systems East Africa Limited | Alumil Group</h3>
                 <p>I specialize in architectural design and project management, delivering innovative solutions that meet client needs and exceed expectations.</p>
                 <div class="btns">
-                    <button class="btn download-cv">Download CV</button>
-                    <button class="btn view-projects">View Projects</button>
+                    <button id="download-cv" class="button">Download-Cv</button>
+                    <button id="projects-button" class="button" onclick="toggleProjects()">View Projects</button>
+
+                    <div class="projects" id="projects">
+                    
+                  </div>
+
                 </div>
                 <div class="contact-info">
                     <p><strong>Cell:</strong> +254 707416333 | <strong>Email:</strong> b.katila@alumil.com</p>
@@ -289,7 +320,7 @@
                 </div>
             </div>
             <div class="img-section">
-                <img src="BrendaPP.jpeg" alt="Brenda Katila" class="profile-pic">
+                <img src="Brenda Katila Resume (2).jpg" alt="Brenda Katila" class="profile-pic">
             </div>
         </div>
     </section>
@@ -349,15 +380,32 @@
         burger.addEventListener('click', () => {
             navLinks.classList.toggle('nav-active');
         });
+
+        document.getElementById('download-cv').addEventListener('click', () => {
+            window.open('Brenda Katila Resume.pdf')}); 
+
         // Optional: Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
+
+                            
+
                 });
             });
         });
+      
+        function toggleProjects() {
+        var projectsDiv = document.getElementById("projects");
+        if (projectsDiv.style.display === "none" || projectsDiv.style.display === "") {
+            projectsDiv.style.display = "block";
+        } else {
+            projectsDiv.style.display = "none";
+        }
+    }
+
     </script>
 </body>
 </html>
